@@ -1,71 +1,38 @@
-# copy-your-click README
+# copy-your-click
 
-This is the README for your extension "copy-your-click". After writing up a brief description, we recommend including the following sections.
+`copy-your-click` 是一个简单实用的 VS Code 扩展，提供了快速复制文件名和文件夹名的功能，帮助开发者更高效地处理文件路径相关的任务。
 
-## Features
+## 功能
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **复制文件名**
+  在资源管理器中右键点击文件，选择 `Copy File Name`，即可将文件名复制到剪贴板。
 
-For example if there is an image subfolder under your extension project workspace:
+- **复制文件夹名**
+  在资源管理器中右键点击文件夹，选择 `Copy Folder Name`，即可将文件夹名复制到剪贴板。
 
-\!\[feature X\]\(images/feature-x.png\)
+## 使用方法
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. 打开 VS Code 的资源管理器。
+2. 右键点击目标文件或文件夹。
+3. 选择相应的命令：
+   - `Copy File Name`：复制文件名。
+   - `Copy Folder Name`：复制文件夹名。
+4. 文件名或文件夹名将被复制到剪贴板，并在右下角显示提示信息。
 
-## Requirements
+## 示例
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- 复制文件名：
+  如果选择的文件路径为 `/Users/quentin/work-space/code/example.txt`，执行 `Copy File Name` 后，剪贴板内容为 `example.txt`。
 
-## Extension Settings
+- 复制文件夹名：
+  如果选择的文件夹路径为 `/Users/quentin/work-space/code/folder/`，执行 `Copy Folder Name` 后，剪贴板内容为 `folder`。
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## 安装
 
-For example:
+1. 克隆或下载此项目到本地。
+2. 在 VS Code 中打开项目文件夹。
+3. 按 `F5` 启动扩展开发主机，测试扩展功能。
 
-This extension contributes the following settings:
+## 贡献
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+欢迎提交问题或功能请求！您可以通过 [GitHub Issues](https://github.com/QuentinHsu/copy-your-click/issues) 提交反馈。
