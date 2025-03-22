@@ -41,7 +41,8 @@
 		"watch": "tsc -watch -p ./",
 		"pretest": "pnpm run compile && pnpm run lint",
 		"lint": "biome format --write",
-		"test": "vscode-test"
+		"test": "vscode-test",
+		"build:package": "pnpm vsce package --no-dependencies"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
