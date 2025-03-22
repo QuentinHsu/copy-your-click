@@ -1,9 +1,17 @@
 # Change Log
 
-All notable changes to the "copy-your-click" extension will be documented in this file.
+## Released
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+### v0.0.1
 
-## [Unreleased]
+#### feat
 
-- Initial release
+- **复制文件名**
+  在资源管理器中右键点击文件，选择 `Copy File Name`，即可将文件名复制到剪贴板。
+
+- **复制文件名（不带文件类型）**
+  在资源管理器中右键点击文件，选择 `Copy File Name`，即可将不带文件后缀名的文件名复制到剪贴板。
+
+- **复制文件夹名**
+  在资源管理器中右键点击文件夹，选择 `Copy Folder Name`，即可将文件夹名复制到剪贴板。
+
