@@ -1,10 +1,14 @@
 {
 	"name": "copy-your-click",
-	"displayName": "copy your click",
+	"displayName": "Copy your click",
 	"description": "",
 	"version": "0.0.1",
 	"author": "QuentinHsu <https://github.com/QuentinHsu>",
 	"publisher": "QuentinHsu",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/QuentinHsu/copy-your-click"
+	},
 	"engines": {
 		"vscode": "^1.98.0"
 	},
