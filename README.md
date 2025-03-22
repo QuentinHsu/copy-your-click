@@ -7,6 +7,9 @@
 - **复制文件名**
   在资源管理器中右键点击文件，选择 `Copy File Name`，即可将文件名复制到剪贴板。
 
+- **复制文件名（不带文件类型）**
+  在资源管理器中右键点击文件，选择 `Copy File Name`，即可将不带文件后缀名的文件名复制到剪贴板。
+
 - **复制文件夹名**
   在资源管理器中右键点击文件夹，选择 `Copy Folder Name`，即可将文件夹名复制到剪贴板。
 
@@ -16,6 +19,7 @@
 2. 右键点击目标文件或文件夹。
 3. 选择相应的命令：
    - `Copy File Name`：复制文件名。
+   - `Copy File Name (No File Type)`：复制不带文件类型后缀名的文件名。
    - `Copy Folder Name`：复制文件夹名。
 4. 文件名或文件夹名将被复制到剪贴板，并在右下角显示提示信息。
 
@@ -23,6 +27,9 @@
 
 - 复制文件名：
   如果选择的文件路径为 `/Users/quentin/work-space/code/example.txt`，执行 `Copy File Name` 后，剪贴板内容为 `example.txt`。
+
+- 复制文件名（不带文件类型）：
+  如果选择的文件路径为 `/Users/quentin/work-space/code/example.txt`，执行 `Copy File Name (No File Type)` 后，剪贴板内容为 `example`。
 
 - 复制文件夹名：
   如果选择的文件夹路径为 `/Users/quentin/work-space/code/folder/`，执行 `Copy Folder Name` 后，剪贴板内容为 `folder`。
