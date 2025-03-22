@@ -3,6 +3,8 @@
 	"displayName": "copy your click",
 	"description": "",
 	"version": "0.0.1",
+	"author": "QuentinHsu <https://github.com/QuentinHsu>",
+	"publisher": "QuentinHsu",
 	"engines": {
 		"vscode": "^1.98.0"
 	},
