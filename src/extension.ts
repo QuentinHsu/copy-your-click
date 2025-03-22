@@ -4,7 +4,7 @@ import * as path from "node:path";
 export function activate(context: vscode.ExtensionContext) {
 	// 处理文件名复制
 	const copyFileNameCommand = vscode.commands.registerCommand(
-		"extension.copyFileName",
+		"copy—your-click.copyFileName",
 		async (uri: vscode.Uri) => {
 			if (uri) {
 				const fileName = uri.fsPath.split("/").pop() || null;
@@ -20,7 +20,7 @@ export function activate(context: vscode.ExtensionContext) {
 
 	// 处理文件夹名复制
 	const copyFolderNameCommand = vscode.commands.registerCommand(
-		"extension.copyFolderName",
+		"copy—your-click.copyFolderName",
 		async (uri: vscode.Uri) => {
 			try {
 				if (!uri || !uri.fsPath) {

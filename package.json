@@ -12,25 +12,25 @@
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.copyFileName",
+				"command": "copy—your-click.copyFileName",
 				"title": "Copy File Name"
 			},
 			{
-				"command": "extension.copyFolderName",
+				"command": "copy—your-click.copyFolderName",
 				"title": "Copy Folder Name"
 			}
 		],
 		"menus": {
 			"explorer/context": [
 				{
-					"command": "extension.copyFileName",
+					"command": "copy—your-click.copyFileName",
 					"when": "resourceFilename && !explorerResourceIsFolder",
-					"group": "navigation"
+					"group": "copy—your-click"
 				},
 				{
-					"command": "extension.copyFolderName",
+					"command": "copy—your-click.copyFolderName",
 					"when": "explorerResourceIsFolder",
-					"group": "navigation"
+					"group": "copy—your-click"
 				}
 			]
 		}

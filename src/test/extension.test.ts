@@ -9,7 +9,10 @@ suite("Extension Test Suite", () => {
 		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
 		test("Copy folder name command", async () => {
 			const mockUri = vscode.Uri.file("/Users/quentin/work-space/code/folder/");
-			await vscode.commands.executeCommand("extension.copyFolderName", mockUri);
+			await vscode.commands.executeCommand(
+				"copy—your-click.copyFolderName",
+				mockUri,
+			);
 
 			const clipboardContent = await vscode.env.clipboard.readText();
 			assert.strictEqual(
@@ -23,7 +26,10 @@ suite("Extension Test Suite", () => {
 			const mockUri = vscode.Uri.file(
 				"/Users/quentin/work-space/code/special@file!.txt",
 			);
-			await vscode.commands.executeCommand("extension.copyFileName", mockUri);
+			await vscode.commands.executeCommand(
+				"copy—your-click.copyFileName",
+				mockUri,
+			);
 
 			const clipboardContent = await vscode.env.clipboard.readText();
 			assert.strictEqual(
@@ -37,7 +43,10 @@ suite("Extension Test Suite", () => {
 			const mockUri = vscode.Uri.file(
 				"/Users/quentin/work-space/code/special@folder!/",
 			);
-			await vscode.commands.executeCommand("extension.copyFolderName", mockUri);
+			await vscode.commands.executeCommand(
+				"copy—your-click.copyFolderName",
+				mockUri,
+			);
 
 			const clipboardContent = await vscode.env.clipboard.readText();
 			assert.strictEqual(
@@ -51,7 +60,10 @@ suite("Extension Test Suite", () => {
 			const mockUri = vscode.Uri.file(
 				"/Users/quentin/work-space/code/deeply/nested/path/file.txt",
 			);
-			await vscode.commands.executeCommand("extension.copyFileName", mockUri);
+			await vscode.commands.executeCommand(
+				"copy—your-click.copyFileName",
+				mockUri,
+			);
 
 			const clipboardContent = await vscode.env.clipboard.readText();
 			assert.strictEqual(
@@ -65,7 +77,10 @@ suite("Extension Test Suite", () => {
 			const mockUri = vscode.Uri.file(
 				"/Users/quentin/work-space/code/deeply/nested/path/folder/",
 			);
-			await vscode.commands.executeCommand("extension.copyFolderName", mockUri);
+			await vscode.commands.executeCommand(
+				"copy—your-click.copyFolderName",
+				mockUri,
+			);
 
 			const clipboardContent = await vscode.env.clipboard.readText();
 			assert.strictEqual(
@@ -78,7 +93,10 @@ suite("Extension Test Suite", () => {
 
 	test("Handle missing file name gracefully", async () => {
 		const mockUri = vscode.Uri.file("./extension.test.ts");
-		await vscode.commands.executeCommand("extension.copyFileName", mockUri);
+		await vscode.commands.executeCommand(
+			"copy—your-click.copyFileName",
+			mockUri,
+		);
 
 		const clipboardContent = await vscode.env.clipboard.readText();
 		assert.strictEqual(
@@ -90,7 +108,10 @@ suite("Extension Test Suite", () => {
 
 	test("Handle missing folder name gracefully", async () => {
 		const mockUri = vscode.Uri.file("/");
-		await vscode.commands.executeCommand("extension.copyFolderName", mockUri);
+		await vscode.commands.executeCommand(
+			"copy—your-click.copyFolderName",
+			mockUri,
+		);
 
 		const clipboardContent = await vscode.env.clipboard.readText();
 		assert.strictEqual(
