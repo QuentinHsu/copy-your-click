@@ -11,9 +11,26 @@ export function activate(context: vscode.ExtensionContext) {
 				if (fileName) {
 					await vscode.env.clipboard.writeText(fileName);
 				}
-				vscode.window.showInformationMessage(
-					`Copied: "${fileName ?? "Unknown"}"`,
-				);
+				vscode.window.showInformationMessage(`📄 Copied: "${fileName}"`);
+			} else {
+				vscode.window.showErrorMessage("📄 No file selected.");
+			}
+		},
+	);
+	const copyFileNameNoFileTyeCommand = vscode.commands.registerCommand(
+		"copy—your-click.copyFileNameNoFileType",
+		async (uri: vscode.Uri) => {
+			if (uri) {
+				const fileName = uri.fsPath.split("/").pop() || null;
+				if (fileName) {
+					const fileNameNoFileType = fileName.split(".")[0];
+					await vscode.env.clipboard.writeText(fileNameNoFileType);
+					vscode.window.showInformationMessage(
+						`📄 Copied: "${fileNameNoFileType}"`,
+					);
+				} else {
+					vscode.window.showErrorMessage("📄 No file selected.");
+				}
 			}
 		},
 	);
@@ -24,7 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
 		async (uri: vscode.Uri) => {
 			try {
 				if (!uri || !uri.fsPath) {
-					vscode.window.showErrorMessage("No folder selected.");
+					vscode.window.showErrorMessage("📁 No folder selected.");
 					return;
 				}
 
@@ -33,22 +50,23 @@ export function activate(context: vscode.ExtensionContext) {
 
 				if (!folderName) {
 					vscode.window.showErrorMessage(
-						"Folder name could not be determined.",
+						"📁 Folder name could not be determined.",
 					);
 					return;
 				}
 
 				await vscode.env.clipboard.writeText(folderName);
-				vscode.window.showInformationMessage(`Copied: "${folderName}"`);
+				vscode.window.showInformationMessage(`📁 Copied: "${folderName}"`);
 			} catch (error) {
 				vscode.window.showErrorMessage(
-					`Failed to copy folder name: ${(error as Error).message}`,
+					`📁 Failed to copy folder name: ${(error as Error).message}`,
 				);
 			}
 		},
 	);
 
 	context.subscriptions.push(copyFileNameCommand);
+	context.subscriptions.push(copyFileNameNoFileTyeCommand);
 	context.subscriptions.push(copyFolderNameCommand);
 }
 

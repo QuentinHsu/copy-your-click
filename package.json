@@ -16,6 +16,10 @@
 				"title": "Copy File Name"
 			},
 			{
+				"command": "copy—your-click.copyFileNameNoFileType",
+				"title": "Copy File Name (No File Type)"
+			},
+			{
 				"command": "copy—your-click.copyFolderName",
 				"title": "Copy Folder Name"
 			}
@@ -24,6 +28,11 @@
 			"explorer/context": [
 				{
 					"command": "copy—your-click.copyFileName",
+					"when": "resourceFilename && !explorerResourceIsFolder",
+					"group": "copy—your-click"
+				},
+				{
+					"command": "copy—your-click.copyFileNameNoFileType",
 					"when": "resourceFilename && !explorerResourceIsFolder",
 					"group": "copy—your-click"
 				},
