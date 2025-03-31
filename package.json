@@ -29,6 +29,46 @@
 			{
 				"command": "copy—your-click.copyFolderName",
 				"title": "Copy Folder Name"
+			},
+			{
+				"command": "copy—your-click.copyAsCamelCase",
+				"title": "camelCase (changeCase)"
+			},
+			{
+				"command": "copy—your-click.copyAsPascalCase",
+				"title": "PascalCase (ChangeCase)"
+			},
+			{
+				"command": "copy—your-click.copyAsSnakeCase",
+				"title": "snake_case (change_case)"
+			},
+			{
+				"command": "copy—your-click.copyAsKebabCase",
+				"title": "kebab-case (change-case)"
+			},
+			{
+				"command": "copy—your-click.copyAsUpperSnakeCase",
+				"title": "UPPER_SNAKE_CASE (CHANGE_CASE)"
+			},
+			{
+				"command": "copy—your-click.copyAsLowerSpace",
+				"title": "lower space (change case)"
+			},
+			{
+				"command": "copy—your-click.copyAsUpperSpace",
+				"title": "UPPER SPACE (CHANGE CASE)"
+			},
+			{
+				"command": "copy—your-click.copyAsTitleCase",
+				"title": "Title Case (Change Case)"
+			},
+			{
+				"command": "copy—your-click.copyAsSentenceCase",
+				"title": "Sentence case (Change case)"
+			},
+			{
+				"command": "copy—your-click.copyAsDotCase",
+				"title": "dot.case (change.case)"
 			}
 		],
 		"menus": {
@@ -47,9 +87,62 @@
 					"command": "copy—your-click.copyFolderName",
 					"when": "explorerResourceIsFolder",
 					"group": "copy—your-click"
+				},
+				{
+					"submenu": "copy—your-click.caseMenu",
+					"group": "copy—your-click",
+					"when": "resourceFilename"
+				}
+			],
+			"copy—your-click.caseMenu": [
+				{
+					"command": "copy—your-click.copyAsCamelCase",
+					"group": "caseMenu"
+				},
+				{
+					"command": "copy—your-click.copyAsPascalCase",
+					"group": "caseMenu"
+				},
+				{
+					"command": "copy—your-click.copyAsSnakeCase",
+					"group": "caseMenu"
+				},
+				{
+					"command": "copy—your-click.copyAsKebabCase",
+					"group": "caseMenu"
+				},
+				{
+					"command": "copy—your-click.copyAsUpperSnakeCase",
+					"group": "caseMenu"
+				},
+				{
+					"command": "copy—your-click.copyAsLowerSpace",
+					"group": "caseMenu"
+				},
+				{
+					"command": "copy—your-click.copyAsUpperSpace",
+					"group": "caseMenu"
+				},
+				{
+					"command": "copy—your-click.copyAsTitleCase",
+					"group": "caseMenu"
+				},
+				{
+					"command": "copy—your-click.copyAsSentenceCase",
+					"group": "caseMenu"
+				},
+				{
+					"command": "copy—your-click.copyAsDotCase",
+					"group": "caseMenu"
 				}
 			]
-		}
+		},
+		"submenus": [
+			{
+				"id": "copy—your-click.caseMenu",
+				"label": "Copy As Case"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "pnpm run compile",
