@@ -2,7 +2,12 @@
 <img height="200" src="./assets/icon.png" alt="export what">
 </p>
 
+
 # Copy your click
+
+[![Visual Studio Marketplace](https://img.shields.io/visual-studio-marketplace/v/quentinhsu.copy-your-click?label=Visual%20Studio%20Marketplace&labelColor=374151&color=60a5fa)](https://marketplace.visualstudio.com/items?itemName=quentinhsu.copy-your-click)
+![GitHub](https://img.shields.io/github/license/QuentinHsu/copy-your-click?label=License&labelColor=374151&color=60a5fa)
+
 
 `Copy your click` 是一个简单实用的 VS Code 扩展，提供了快速复制文件名和文件夹名的功能，帮助开发者更高效地处理文件路径相关的任务。
 
