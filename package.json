@@ -98,7 +98,7 @@
 					"when": "resourceFilename"
 				},
 				{
-					"command": "copy-your-click.duplicateItem",
+					"command": "copy-your-click.duplicate",
 					"group": "copy—your-click"
 				}
 			],
