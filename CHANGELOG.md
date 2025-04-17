@@ -1,10 +1,22 @@
 # Change Log
 
-## Released
 
-### 0.0.1
+## 0.0.3
 
-#### feat
+### feat
+
+- feat(extension): Add file copy function, allowing users to copy files or folders and rename
+
+## 0.0.2
+
+### feat
+
+- **Change Case**
+
+	在资源管理器中右键点击文件，选择 `Copy As Case`，然后选择具体 `Case` 进行复制。
+## 0.0.1
+
+### feat
 
 - **复制文件名**
 
@@ -17,12 +29,3 @@
 - **复制文件夹名**
 
 	在资源管理器中右键点击文件夹，选择 `Copy Folder Name`，即可将文件夹名复制到剪贴板。
-
-
-### 0.0.2
-
-#### feat
-
-- **Change Case**
-
-	在资源管理器中右键点击文件，选择 `Copy As Case`，然后选择具体 `Case` 进行复制。
