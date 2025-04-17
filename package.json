@@ -69,6 +69,10 @@
 			{
 				"command": "copy—your-click.copyAsDotCase",
 				"title": "dot.case (change.case)"
+			},
+			{
+				"command": "copy-your-click.duplicate",
+				"title": "Duplicate"
 			}
 		],
 		"menus": {
@@ -92,6 +96,10 @@
 					"submenu": "copy—your-click.caseMenu",
 					"group": "copy—your-click",
 					"when": "resourceFilename"
+				},
+				{
+					"command": "copy-your-click.duplicateItem",
+					"group": "copy—your-click"
 				}
 			],
 			"copy—your-click.caseMenu": [
