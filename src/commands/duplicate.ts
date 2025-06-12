@@ -54,12 +54,40 @@ export function registerDuplicateCommand(context: vscode.ExtensionContext) {
 					`✅ Duplicated "${originalName}" as "${newName}"`,
 				);
 
-				// 尝试让新文件/文件夹在资源管理器中显示并准备重命名
-				// 注意：这不保证一定能让其进入编辑状态，但会尝试选中它
-				// 更好的方法是直接使用用户输入的名字创建，如上所示。
-				// 如果仍想尝试触发编辑状态，可以取消下面这行注释，但这可能不可靠。
-				// await vscode.commands.executeCommand('revealInExplorer', targetUri);
-				// await vscode.commands.executeCommand('workbench.files.action.rename');
+				// 检查复制的目标是文件还是文件夹
+				const targetStat = await vscode.workspace.fs.stat(targetUri);
+				
+				if (targetStat.type === vscode.FileType.File) {
+					// 如果是文件，直接在编辑器中打开
+					await vscode.window.showTextDocument(targetUri);
+				} else if (targetStat.type === vscode.FileType.Directory) {
+					// 如果是文件夹，尝试平滑地显示和展开
+					try {
+						// 直接在资源管理器中显示文件夹，无需刷新
+						await vscode.commands.executeCommand('revealInExplorer', targetUri);
+						
+						// 使用较短的延迟，减少抖动
+						await new Promise(resolve => setTimeout(resolve, 50));
+						
+						// 只使用最有效的展开方法
+						try {
+							await vscode.commands.executeCommand('list.expand');
+						} catch {
+							// 如果展开失败，静默处理，至少文件夹已被选中
+						}
+						
+					} catch (revealError) {
+						// 如果reveal失败，尝试刷新后再试一次
+						try {
+							await vscode.commands.executeCommand('workbench.files.action.refreshFilesExplorer');
+							await new Promise(resolve => setTimeout(resolve, 50));
+							await vscode.commands.executeCommand('revealInExplorer', targetUri);
+						} catch {
+							// 最后的备选方案：只聚焦文件浏览器
+							await vscode.commands.executeCommand('workbench.files.action.focusFilesExplorer');
+						}
+					}
+				}
 			} catch (error) {
 				vscode.window.showErrorMessage(
 					`❌ Failed to duplicate: ${(error as Error).message}`,
