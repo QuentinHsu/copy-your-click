@@ -69,16 +69,18 @@ jobs:
             
             // 如果没有找到 changelog 部分，检查是否整个 PR 描述都是 changelog
             if (!changelog && prBody.trim()) {
-              // 简单检查：如果包含常见的 changelog 关键词
+              // 先清理注释内容
+              let cleanedPrBody = prBody.replace(/<!--[\s\S]*?-->/g, '').trim();
+              
+              // 检查清理后的内容是否包含常见的 changelog 关键词
               const changelogKeywords = ['Feature', 'Fixed', 'Changed', 'Added', 'Removed', 'feat', 'fix', 'add', 'update', 'remove', '新增', '修复', '更新', '删除', '功能', '变更'];
               const hasChangelogKeywords = changelogKeywords.some(keyword => 
-                prBody.toLowerCase().includes(keyword.toLowerCase())
+                cleanedPrBody.toLowerCase().includes(keyword.toLowerCase())
               );
               
-              if (hasChangelogKeywords) {
-                changelog = prBody.trim();
-                // 清理注释内容
-                changelog = changelog.replace(/<!--[\s\S]*?-->/g, '').trim();
+              // 只有在清理后的内容有实际内容且包含关键词时才使用
+              if (hasChangelogKeywords && cleanedPrBody.length > 0) {
+                changelog = cleanedPrBody;
               }
             }
             
