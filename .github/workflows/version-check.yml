@@ -55,23 +55,22 @@ jobs:
             
             console.log('Original PR Body:', prBody);
             
-            // 查找 ## Changelog 或 ## 更新日志 部分
+            // 先清理整个 PR 描述中的 HTML 注释
+            const cleanedPrBody = prBody.replace(/<!--[\s\S]*?-->/g, '').trim();
+            console.log('PR Body after removing comments:', cleanedPrBody);
+            
+            // 查找 ## Changelog 或 ## 更新日志 部分（在清理后的内容中查找）
             const changelogRegex = /(?:^|\n)##\s*(?:Changelog|更新日志|CHANGELOG)\s*\n([\s\S]*?)(?=\n##|\n---|\n```|$)/i;
-            const match = prBody.match(changelogRegex);
+            const match = cleanedPrBody.match(changelogRegex);
             
             let changelog = '';
             if (match && match[1]) {
               changelog = match[1].trim();
-              // 清理注释内容
-              changelog = changelog.replace(/<!--[\s\S]*?-->/g, '').trim();
-              console.log('Changelog after removing comments:', changelog);
+              console.log('Extracted changelog from ## section:', changelog);
             }
             
             // 如果没有找到 changelog 部分，检查是否整个 PR 描述都是 changelog
-            if (!changelog && prBody.trim()) {
-              // 先清理注释内容
-              let cleanedPrBody = prBody.replace(/<!--[\s\S]*?-->/g, '').trim();
-              
+            if (!changelog && cleanedPrBody.trim()) {
               // 检查清理后的内容是否包含常见的 changelog 关键词
               const changelogKeywords = ['Feature', 'Fixed', 'Changed', 'Added', 'Removed', 'feat', 'fix', 'add', 'update', 'remove', '新增', '修复', '更新', '删除', '功能', '变更'];
               const hasChangelogKeywords = changelogKeywords.some(keyword => 
@@ -81,6 +80,34 @@ jobs:
               // 只有在清理后的内容有实际内容且包含关键词时才使用
               if (hasChangelogKeywords && cleanedPrBody.length > 0) {
                 changelog = cleanedPrBody;
+                console.log('Using entire cleaned PR body as changelog');
+              }
+            }
+            
+            // 检查提取的 changelog 是否只是模板内容
+            if (changelog && changelog.trim()) {
+              // 检查是否包含模板关键词，如果是模板则清空
+              const templateKeywords = [
+                'If this PR requires a new version',
+                '如果这个 PR 需要发布新版本',
+                'please write the changelog below',
+                '请在下面写明更新日志',
+                'Suggested format',
+                '格式建议',
+                'Example / 示例',
+                'New feature description',
+                'Bug fix description',
+                'Feature change description',
+                'Removed feature description'
+              ];
+              
+              const isTemplate = templateKeywords.some(keyword => 
+                changelog.toLowerCase().includes(keyword.toLowerCase())
+              );
+              
+              if (isTemplate) {
+                console.log('Detected template content, clearing changelog');
+                changelog = '';
               }
             }
             
