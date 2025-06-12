@@ -1,6 +1,11 @@
 # Change Log
 
 
+## [0.0.4] - 2025-06-12
+
+### Feature
+- auto-open files and expand folders after duplication
+
 ## 0.0.3
 
 ### feat
