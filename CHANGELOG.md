@@ -1,31 +1,13 @@
 # Change Log
 
+## [0.0.4] - 2025-06-12
 
-## 0.0.3
+<!-- 
+If this PR requires a new version release (modified version in package.json),
+please write the changelog below. This content will be included in the GitHub Release.
 
-### feat
+如果这个 PR 需要发布新版本（修改了 package.json 中的 version），
+请在下面写明更新日志，这些内容将被包含在 GitHub Release 中。
 
-- feat(extension): Add file copy function, allowing users to copy files or folders and rename
+Suggested format / 格式建议：
 
-## 0.0.2
-
-### feat
-
-- **Change Case**
-
-	在资源管理器中右键点击文件，选择 `Copy As Case`，然后选择具体 `Case` 进行复制。
-## 0.0.1
-
-### feat
-
-- **复制文件名**
-
-	在资源管理器中右键点击文件，选择 `Copy File Name`，即可将文件名复制到剪贴板。
-
-- **复制文件名（不带文件类型）**
-
-	在资源管理器中右键点击文件，选择 `Copy File Name`，即可将不带文件后缀名的文件名复制到剪贴板。
-
-- **复制文件夹名**
-
-	在资源管理器中右键点击文件夹，选择 `Copy Folder Name`，即可将文件夹名复制到剪贴板。
