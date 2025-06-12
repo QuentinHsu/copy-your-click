@@ -139,47 +139,12 @@ jobs:
               }
               
               if (changelog) {
-                message = `🚀 **Release will be triggered!**
-                
-                Version will change from \`${baseVersion}\` to \`${prVersion}\` when this PR is merged.
-                
-                **📝 Changelog detected:**
-                \`\`\`
-                ${changelog}
-                \`\`\`
-                
-                A new release will be automatically created with tag \`v${prVersion}\` including the above changelog.`;
+                message = `🚀 **Release will be triggered!**\n\nVersion will change from \`${baseVersion}\` to \`${prVersion}\` when this PR is merged.\n\n**📝 Changelog detected:**\n\n\n${changelog}\n\n\nA new release will be automatically created with tag \`v${prVersion}\` including the above changelog.`;
               } else {
-                message = `🚀 **Release will be triggered!**
-                
-                Version will change from \`${baseVersion}\` to \`${prVersion}\` when this PR is merged.
-                
-                ⚠️ **No changelog detected** in PR description. Consider adding a \`## Changelog\` section to document your changes.
-                
-                **How to add changelog:**
-                1. Edit this PR description
-                2. Add a section like this:
-                \`\`\`markdown
-                ## Changelog
-                
-                ### Feature
-                - New feature description
-                
-                ### Fixed
-                - Bug fix description
-                
-                ### Changed
-                - Change description
-                \`\`\`
-                
-                A new release will be automatically created with tag \`v${prVersion}\`.`;
+                message = `🚀 **Release will be triggered!**\n\nVersion will change from \`${baseVersion}\` to \`${prVersion}\` when this PR is merged.\n\n⚠️ **No changelog detected** in PR description. Consider adding a \`## Changelog\` section to document your changes.\n\n**How to add changelog:**\n1. Edit this PR description\n2. Add a section like this:\nmarkdown\n## Changelog\n\n### Feature\n- New feature description\n\n### Fixed\n- Bug fix description\n\n### Changed\n- Change description\n\n\nA new release will be automatically created with tag \`v${prVersion}\`.`;
               }
             } else {
-              message = `📝 **No release will be triggered**
-              
-              The version in \`package.json\` has not been changed (still \`${baseVersion}\`).
-              
-              To trigger a release, please update the \`version\` field in \`package.json\`.`;
+              message = `📝 **No release will be triggered**\n\nThe version in \`package.json\` has not been changed (still \`${baseVersion}\`).\n\nTo trigger a release, please update the \`version\` field in \`package.json\`.`;
             }
             
             // 查找已存在的评论
