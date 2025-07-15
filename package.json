@@ -2,7 +2,7 @@
 	"name": "copy-your-click",
 	"displayName": "Copy your click",
 	"description": "Copy file name, folder name, and change case of file name in VSCode.",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"author": "QuentinHsu <https://github.com/QuentinHsu>",
 	"publisher": "QuentinHsu",
 	"repository": {
