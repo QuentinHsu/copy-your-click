@@ -73,6 +73,10 @@
 			{
 				"command": "copy-your-click.duplicate",
 				"title": "Duplicate"
+			},
+			{
+				"command": "copy-your-click.duplicateWithPath",
+				"title": "Duplicate to..."
 			}
 		],
 		"menus": {
@@ -99,6 +103,10 @@
 				},
 				{
 					"command": "copy-your-click.duplicate",
+					"group": "copy—your-click"
+				},
+				{
+					"command": "copy-your-click.duplicateWithPath",
 					"group": "copy—your-click"
 				}
 			],
